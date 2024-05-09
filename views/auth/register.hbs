@@ -10,36 +10,37 @@
   {{> main}}
   <form enctype="application/json" action="/auth/register" method="POST">
     <br>
-    
-        <div >
+    <div class="row justify-content-md-center">
+      <div class="card text-center" style="width: 18rem;">
+        <div class="card-header card-title fw-bold">
           Registro
         </div>
-      
-          <div >
+        <div class="card-body">
+          <div class="row d-flex justify-content-center">
             <div class="col-auto">
-              <label for="email" >Email: </label>
-              <input type="email"  name="email" id="email" placeholder="Correo Electrónico"
+              <label for="email" class="col-form-label card-title">Email: </label>
+              <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electrónico"
                 aria-labelledby="passwordHelpInline">
               {{#each messages}}
               {{#if email}}
-              <label for="email" >{{email}}</label>
+              <label for="email" class="col-form-label alert alert-danger">{{email}}</label>
               {{/if}}
               {{/each}}
             </div>
             <div class="col-auto">
-              <label for="password">Password: </label>
-              <input type="text"  name="password" id="password" placeholder="Contraseña"
+              <label for="password" class="col-form-label card-title">Password: </label>
+              <input type="text" class="form-control" name="password" id="password" placeholder="Contraseña"
                 aria-labelledby="passwordHelpInline">
               {{#each messages}}
               {{#if password}}
-              <label for="password">{{password}}</label>
+              <label for="password" class="col-form-label alert alert-danger">{{password}}</label>
               {{/if}}
               {{/each}}
             </div>
           </div>
         </div>
-        <div >
-          <input type="submit"  value="Registrar">
+        <div class="card-footer text-body-secondary">
+          <input type="submit" class="btn btn-primary" value="Registrar">
         </div>
       </div>
     </div>
