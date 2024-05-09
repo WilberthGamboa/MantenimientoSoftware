@@ -7,14 +7,14 @@ describe('MyPcService', () => {
         
         const existsSync = jest.fn().mockReturnValue(true);
         const myPcService = { existsSync: existsSync };
-        expect(() => myPcService.existsSync('/path/to/valid_image_name.jpg')).not.toThrow();
+        expect(() => myPcService.existsSync('/uploads/4321-dpkd-233.jpg')).not.toThrow();
       });
   
       it('should throw BadRequestException if image does not exist', () => {
        
         const existsSync = jest.fn().mockReturnValue(false);
         const myPcService = { existsSync: existsSync };
-        expect(() => myPcService.existsSync('/path/to/invalid_image_name.jpg')).not.toThrow();
+        expect(() => myPcService.existsSync('/uploaasd/4321-dpkd-233.jpg')).not.toThrow();
       });
     });
   });
