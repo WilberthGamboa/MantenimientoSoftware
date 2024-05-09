@@ -1,8 +1,8 @@
-import { IsEmail, IsNotEmpty, IsString, IsStrongPassword, Length, Max } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, IsStrongPassword, Length, MaxLength } from 'class-validator';
 
 export class CreateUserDto {
 
-  @Length(1, 30,{message:'El límite de la correo  es de 30 caracteres y mínimo 1'})
+  @MaxLength(30,{message:'El correo es de maximo 30 caracteres'})
   @IsString({message:'Debe ser texto'})
   @IsEmail({}, { message: 'Favor de insertar un correo válido' })
   
@@ -11,7 +11,7 @@ export class CreateUserDto {
 
   @IsString()
   @IsStrongPassword({},{message:'La contraseña no es totalmente segura'})
-  @Length( 10,30,{message:'El límite de la contraseña  es de mínimo 10 y máximo 30'})
+  @MaxLength(30,{message:'La contraseña es de maximo 30 caracteres'})
   @IsNotEmpty({ message: () => 'La contraseña no puede estar vacía' })
   password: string;
 }
