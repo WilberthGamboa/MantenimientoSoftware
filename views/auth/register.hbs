@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>App</title>
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+  {{> main}}
+  <form enctype="application/json" action="/auth/register" method="POST">
+    <br>
+    
+        <div >
+          Registro
+        </div>
+      
+          <div >
+            <div class="col-auto">
+              <label for="email" >Email: </label>
+              <input type="email"  name="email" id="email" placeholder="Correo Electrónico"
+                aria-labelledby="passwordHelpInline">
+              {{#each messages}}
+              {{#if email}}
+              <label for="email" >{{email}}</label>
+              {{/if}}
+              {{/each}}
+            </div>
+            <div class="col-auto">
+              <label for="password">Password: </label>
+              <input type="text"  name="password" id="password" placeholder="Contraseña"
+                aria-labelledby="passwordHelpInline">
+              {{#each messages}}
+              {{#if password}}
+              <label for="password">{{password}}</label>
+              {{/if}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div >
+          <input type="submit"  value="Registrar">
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
