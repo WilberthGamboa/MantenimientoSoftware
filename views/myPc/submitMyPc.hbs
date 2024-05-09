@@ -7,13 +7,15 @@
 </head>
 <body>
   {{> main}}
+
+ 
   <div class="container h-100">
     <div class="row justify-content-center align-items-center h-100">
       <div class="col-md-6">
         <div class="card mt-3">
           <div class="card-body">
             <h5 class="card-title">Nueva PC</h5>
-            <form enctype="multipart/form-data" action="" method="post">
+            <form id="miFormulario" enctype="multipart/form-data" action="" method="post">
               <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
@@ -49,7 +51,7 @@
                 {{/each}}
               </div>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-dark" title="Subir PC">Guardar</button>
+                <button id="subir" type="submit" class="btn btn-dark" title="Subir PC">Guardar</button>
                 <a href="/" class="btn btn-dark" title="Cancelar">Cancelar</a>
               </div>
             </form>
@@ -58,5 +60,40 @@
       </div>
     </div>
   </div>
+   <script>
+var formulario = document.getElementById("miFormulario");
+
+// Agregar un event listener para el evento 'submit' al formulario, que llame a la función handleSubmit
+formulario.addEventListener("submit", handleSubmit);
+
+
+
+function handleSubmit(event) {
+   event.preventDefault();  
+   Swal.fire({
+  title: "¿Estás seguro esta acción subirá una nueva computadora?",
+  text:'En caso de ser válida, se redigirá al menú general de las computadoras',
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Aceptar",
+  cancelButtonText:"Cancelar"
+}).then((result) => {
+  if (result.isConfirmed) {
+  event.target.submit();
+  }
+});
+
+  console.log("Se hizo clic en el botón");
+}
+
+// Obtener el botón por su id
+
+
+
+
+
+  </script>
 </body>
 </html>
